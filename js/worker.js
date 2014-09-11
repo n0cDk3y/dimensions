@@ -153,3 +153,25 @@ function grayscale(imgData){
 
   return gray;
 }
+
+//
+// Colourscale
+// -----------
+//  
+// reduces the input image data to an array of colour shades.
+//
+
+function colourscale(imgData){
+  var colour = new Int16Array(imgData.length/4);
+
+  for(var i=0, n=0, l=imgData.length; i<l; i+=4, n++){
+    var r = imgData[i],
+        g = imgData[i],
+        b = imgData[i];
+
+    // weighted grayscale algorithm
+    colour[n] = Math.round(r * 0.3 + g * 0.59 + b * 0.11);
+  }
+
+  return colour;
+}
